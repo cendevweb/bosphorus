@@ -1,0 +1,9 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<global id="compte">
+    <div id="content">
+       <p class="pCompte">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+    <p class="pCompte"><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+    </div>
+</global>

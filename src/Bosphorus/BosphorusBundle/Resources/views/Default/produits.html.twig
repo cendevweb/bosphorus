@@ -1,0 +1,75 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% block titre %}{{ produit.nom }}{% endblock %}
+{% block description %}{{ produit.description }}{% endblock%}
+
+
+{% block body %}
+<global id="produit">
+    {%if produit.categorie.id == 1%}
+    <p id="path">Bijoux femme / bague</p>
+    {% else %}
+    <p id="path">Bijoux femme / bracelet</p>
+    {% endif %}
+    <section id="blocProd">
+        <img src="{{produit.image.path}}" alt="le produit"/>
+        <div id="blocDesc">
+            <h1>{{produit.nom}}</h1>
+            <p id="price">{{produit.prix|tva(produit.tva.multiplicate) }} €</p>
+            {% if panier[produit.id] is not defined %}
+            <form action="{{ path('ajouter', { 'id' : produit.id }) }}" method="GET">
+                <label>Quantité :</label><select name="qte" id="ajoutqte">
+                    {% for i in 1..10 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            <button class="ajout">Ajouter au panier</button>
+            </form>
+            {% else %}
+                    <button href="{{ path('panier')}}">Ce produit est déjà dans votre panier</button>
+            {% endif %}
+            <br/>
+            <br/>
+            <br/>
+            <div class="display">
+                <h3>Description</h3>
+                <p  id="desc">{{produit.description}}</p>
+            </div>
+            <div class="display">
+                <h3 class="catLeft">Caracteristique</h3>
+                <table id="caracteristique">
+                    <tr>
+                        <td>poids</td>
+                        <td>pierre</td>
+                        <td>pierre secondaire</td>
+                        <td>longueur</td>
+                        <td>largeur</td>
+                    </tr>
+                    <tr>
+                        <td>{{produit.poids}}gr</td>
+                        <td>{{produit.pierre}}</td>
+                        <td>{{produit.pierre2}}</td>
+                        <td>{{produit.longueur}}cm</td>
+                        <td>{{produit.largeur}}cm</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="sectionSlide">
+        <h2 class="titleSlide">Produits pouvant vous plaire</h2>
+        <ul class="slide">
+            {% for i in 0..6%}
+              {% if(produits[i].categorie == produit.categorie and produits[i].id != produit.id)%}
+            <li class="prodSlide">
+                <img class="borderRight" src="{{ produits[i].image.path }}"/>
+                <p class="price">{{ produits[i].prix }}€</p>
+                <a class="ajout" href="{{ path('ajouter', { 'id' : produits[i].id }) }}">Ajouter au panier</a>
+            </li>
+            {% endif %}
+             {% endfor %}
+        </ul>
+    </section>
+</global>
+{% endblock %}

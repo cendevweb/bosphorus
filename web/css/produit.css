@@ -1,0 +1,235 @@
+@charset "utf-8";
+/*RESET AVEC LE SELECTEUR UNIVERSEL*/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	background: #FFF;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+}
+
+#produit #global {
+	width: 100%;
+	margin:0 auto;
+
+
+}
+
+#produit #path{
+	font-size : 2em;
+	color: #1b1b1b;
+	position: relative;
+	width:60%;
+	top: 20px;
+	left: 20%;
+}
+
+#produit #blocProd{
+	width: 60%;
+	position: relative;
+	top: 100px;
+	left: 20%;
+	height: auto;
+}
+
+#produit #blocProd img{
+	width: 40%;
+	border-right: #86b2eb solid 1px;
+        padding-right:15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#produit #blocDesc{
+	width: 55%;
+	height:auto;
+	position: relative;
+	top: -100px;
+	left: 45%;
+}
+
+#produit #blocDesc h1{
+	font-size: 3em;
+	position: relative;
+	top: 100px;
+	left: 5%;
+}
+
+#produit #blocDesc p{
+	font-size: 1.8em;
+	position: relative;
+	top: 110px;
+	left: 5%;
+}
+#produit #blocDesc #price{
+	color: #86b2eb;
+	font-size: 4em;
+	top: 105px;
+}
+#produit #blocDesc form{
+	font-size: 1.5em;
+	position: relative;
+	top:80px;
+	left: 50px;
+	color: #1b1b1b;
+}
+#produit .display {
+	position: absolute;
+	height: 425px;
+        width:auto;
+	min-width: 100%;
+	top: 150%;
+	left: 5%;
+}
+#produit .display h3{
+	display: inline-block;
+	position: absolute;
+	font-size: 1.5em;
+	z-index: 10;
+}
+#produit .display h3:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+#produit #blocDesc table{
+    width: 100%;
+	border: 1px #1b1b1b solid;
+	position: relative;
+	top: 40px;
+	display: none;
+}
+#produit .catLeft{
+	position: relative;
+	left: 25%;
+	padding-left: 5%;
+	border-left: 1px solid #000;
+}
+#produit #desc{
+	position: relative;
+	margin-top: -70px; 
+	display: block;
+	margin-left: -5%;
+}
+#produit #blocDesc table td{
+	width: 30%;
+	font-size: 1.8em;
+	padding: 5px 15px;
+}
+#produit #blocDesc a:hover{
+	color: #86b2eb;
+}
+
+/*		STYLE SLIDE PRODUIT SIMILAIRE		*/
+#produit .sectionSlide {
+	position: relative;
+	top: 220px;
+	width: 60%;
+	left: 20%;
+	margin-bottom: 100px;
+	margin-top: 10%;
+}
+
+#produit .titleSlide {
+	font-size: 2em;
+	margin-top: 3%;
+}
+
+#produit .slide{
+	width: 100%;
+	height: auto;
+	border:  #86b2eb 2px solid;
+	margin-top: 1%;
+}
+
+#produit .prodSlide{
+	display: inline-block;
+	width: 24.72%;
+	text-align: right;
+	position: relative;
+
+}
+
+#produit .prodSlide img{
+	width: 70%;
+	padding-right: 14.8%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#produit .prodSlide p{
+    font-size : 1.5em;
+    color: #86b2eb;
+    position: relative;
+    left: -10%;
+}
+
+#produit .prodSlide a{
+    font-size : 1.4em;
+    color: #86b2eb;
+    position: relative;
+    left: -30%;
+    top: -18px;
+}
+#produit .borderRight{
+	border-right: 1px solid #86b2eb;
+}
+
+#produit #price{
+	padding: 3% 8% 3% 0%;
+	color:  #86b2eb;
+	font-size: 1.5em;
+	width: auto;
+        max-width: 80%;
+	position: relative;
+	right: 10%;
+	margin-top: 15px;
+	text-align: left;
+}
+
+#produit .ajout{
+	padding: 3% 0%;
+	color: #86b2eb;
+        background: none;
+	font-size: 1.1em;
+	width: 35%;
+	position: relative;
+	right: 0%;
+	top: 30px;
+}
+#produit .ajout:hover{
+	text-decoration: underline;
+        cursor: pointer;
+}
+
+
+#produit #ajoutqte{
+    position: relative;
+    top: 30px;
+    left: -15px;
+}
+#produit label{
+    position: relative;
+    top: 30px;
+    left:-27px;
+    font-size: 0.8em;
+}
+@media screen and (max-width: 1600px) {
+	#produit .prodSlide{
+		width: 24.69%;
+	}
+}
+
+
+@media screen and (max-width: 1230px) {
+	#produit .prodSlide{
+		width: 24.30%;
+	}
+}
+

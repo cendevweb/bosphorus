@@ -1,0 +1,47 @@
+index:
+    path:     /
+    defaults: { _controller: BosphorusBundle:Categories:index }
+    
+produit:
+    path:     /produit/{id}
+    defaults: { _controller: BosphorusBundle:Produits:produits }
+    
+panier:
+    path:     /panier
+    defaults: { _controller: BosphorusBundle:Panier:panier }
+
+livraison:
+    path:     /panier/livraison
+    defaults: { _controller: BosphorusBundle:Panier:livraison }
+   
+validation:
+    path:     /panier/validation
+    defaults: { _controller:BosphorusBundle:Panier:validation }
+    
+livraisonAdresseSuppression:
+    path:     /panier/livraison/adresse/suppression/{id}
+    defaults: { _controller:BosphorusBundle:Panier:adresseSuppression }
+   
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: BosphorusBundle:Panier:ajouter }
+    
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: BosphorusBundle:Panier:supprimer }
+
+listeProduits:
+    path:     /listeproduits
+    defaults: { _controller: BosphorusBundle:Produits:listeProduits }
+
+categorieProduits:
+    path:     /categorie/{categorie}
+    defaults: { _controller: BosphorusBundle:Produits:categorie }
+    
+rechercheProduits:
+    path:     /recherche
+    defaults: { _controller: BosphorusBundle:Produits:rechercheTraitement }
+    
+validationCommande:
+    pattern: /api/banque/{id}
+    defaults: { _controller: BosphorusBundle:Commandes:validationCommande }

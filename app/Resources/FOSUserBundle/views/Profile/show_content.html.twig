@@ -1,0 +1,9 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<global id="compte">
+    {% include 'UtilisateursBundle:Default:modules/utilisateursConnected.html.twig' %}
+    <div id="content">
+        <h2>Mes Informations :</h2>
+        <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+        <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    </div>
+</global>

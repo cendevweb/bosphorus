@@ -1,0 +1,28 @@
+<ul id="menu">
+
+    <li class="menuPadding"><a href="{{ path('index') }}">Accueil</a></li>
+
+    <li class="menuMarge menuPadding">
+        <a href="#" >Catégories</a>
+
+        <ul id="sousmenu">
+            {% for categorie in categories %}
+                <li>
+                    <a href="{{ path('categorieProduits', { 'categorie' : categorie.id }) }}">{{ categorie.nom }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </li>
+    <li class="menuPadding"><a href="{{ path('panier') }}">Panier : {{ contentPanier|length }}</a></li>
+        {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li class="menuMarge menuPadding"><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
+        {% else %}
+        <li class="menuMarge menuPadding"><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+        {% endif %}
+    <li class="menuPadding"><a href="#">A propos</a></li>
+</ul>
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Bosphorus Jewellery!{% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock%}" />
+        <meta name="description" content="{% block description %}{% endblock%}" />
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/produit.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/panier.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/livraison.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/compte.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/listeproduits.css') }}"/>
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <div id="bandeau">
+            <img src="{{ asset('img/title.png') }}" alt="titre du site"/>
+        </div>
+        <div id="headright">
+            {% render(controller('BosphorusBundle:Produits:recherche')) %}
+
+        </div>
+    </header>
+
+    <nav>
+        {% render(controller('BosphorusBundle:Categories:menu')) %}
+
+    </nav>
+{% block body %}{% endblock %}
+
+<footer>
+    <div id="plan">
+        <h3 class="footerh3">Plan du site</h3>
+        <a href="{{ path('index') }}" class="lien">Index</a>
+        <a href="{{ path('categorieProduits', { 'categorie' : 1}) }}" class="lien">Catégorie Bague</a>
+        <a href="{{ path('categorieProduits', { 'categorie' : 2}) }}" class="lien">Catégorie Bracelet</a>
+        <a href="{{ path('panier') }}" class="lien">Panier</a>
+        <a href="{{ path('livraison') }}" class="lien">Livraison</a>
+        <a href="{{ path('validation') }}" class="lien colonne2 ">Validation</a>
+        <a href="{{ path('fos_user_security_login') }}" class="lien colonne2">Se connecter</a>
+        <a href="{{ path('fos_user_registration_register') }}" class="lien colonne2">Inscription</a>
+        <a href="{{ path('fos_user_profile_show') }}" class="lien colonne2">Page profile</a>
+        <a href="{{ path('index') }}" class="lien colonne2">Mentions légales</a>
+
+
+    </div>
+    <div id="contact">
+        <h3 class="footerh3">Contact :</h3>
+        <p>- bosphorusjewelery@gmail.com<br/>
+            - 06 57 45 81 36<br/>
+            - 12 avenue ledru rollin
+        </p>
+    </div>
+</footer>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

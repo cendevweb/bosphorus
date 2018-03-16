@@ -1,0 +1,59 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% set totalHT = 0 %}
+{% set totalTTC = 0 %}
+
+{% block body %}
+    <global id="panier">
+        <span id="path"><p><span class="blue">1 : Liste de mes Produits</span></p><p class="borderLeft"><span class="blue">2 : Identification</span></p><p class="borderLeft"><span class="blue">3 : Récapitulatif</span></p><p class="borderLeft"><span class="blue">4 : Paiement</span></p></span>
+        <div id="content">
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <p class="message">{{ flashMessage }}</p>
+            {% endfor %}
+            <h2>Contenue de votre panier :</h2>
+            {% if produits|length == 0 %}
+                <p class="subhead">Votre panier est vide !</p>
+            {% else %}
+                <p class="subhead">Votre panier contient {{ produits|length }} produits</p>
+            <table>
+                <tr>
+                    <td><strong>Produit</strong></td>
+                    <td><strong>Nom</strong></td>
+                    <td><strong>Description</strong></td>
+                    <td><strong>Prix</strong></td>
+                    <td><strong>Quantite</strong></td>
+                    <td><strong>Total HT</strong></td>
+                    <td><strong>Supprimer</strong></td>
+                </tr>
+                {% for produit in produits %}
+                <tr>
+                    <form action="{{ path('ajouter', { 'id' : produit.id }) }}" method="get">
+                    <td width="15%"><img src="{{produit.image.path}}" alt="le produit"/></td>
+                    <td>{{ produit.nom }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{produit.prix}} €</td>
+                    <td>
+                        <select name="qte" onChange="this.form.submit()">
+                            {% for i in 1..10 %}
+                            <option value="{{ i }}" {% if i == panier[produit.id] %} selected="selected" {% endif %}>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>{{produit.prix * panier[produit.id] }} €</td>
+                    <td><a href="{{path ('supprimer', {'id' : produit.id}) }}"><img src="{{ asset('img/delete.png') }}" class="deleteImg"/></a></td>
+                    </form>
+                </tr>
+                {% set totalHT = totalHT + (produit.prix * panier[produit.id])%}
+                {% set totalTTC = totalTTC + (produit.prix * panier[produit.id])|tva(produit.tva.multiplicate)%}
+                {% endfor %}
+            </table>
+            
+            <p id="total"> Total HT : {{ totalHT }} €</p>
+            <p id="total"> Total TTC : {{ totalTTC }} €</p>
+            <a href="{{ path('livraison') }}" class="btnPanier">Commander !</a>
+            {% endif %}
+            <a href="{{ path('index') }}" class="btnPanier">Continuer mes achats</a>
+        </div>
+    </global>
+{% endblock %}

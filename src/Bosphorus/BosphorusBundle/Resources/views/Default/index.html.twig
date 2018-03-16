@@ -1,0 +1,55 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+    <global id="index">
+        <div id="content">
+            <section id="text">
+                <h1>Bienvenue sur bosphorus.com le site de bijouterie le plus cool du net</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate augue vel
+                    libero malesuada finibus. Sed eu dolor sollicitudin, pellentesque sapien dignissim,
+                    rutrum massa.Cum sociis natoque penatibuset magnis dis parturient montes, nascetur
+                    ridiculus mus.</p>
+            </section>
+       
+                <section id="catMiseEnAvant">
+                    <article id="cat1">
+                        <img src="{{ asset('img/graphine1.png') }}" class="graphine"/>
+                        <img src="{{ categories[0].image.path }}" alt="image de categorie 1" class="imgprod"/>
+                        <h2>{{ categories[0].nom }}</h2>
+                        <p>{{ categories[0].description }}</p>
+                    </article>
+                    <article id="cat2">
+                        <img src="{{ asset('img/graphine2.png') }}" class="graphine"/>
+                        <img src="{{ categories[1].image.path }}" alt="image de categorie 1" class="imgprod"/>
+                        <h2>{{ categories[1].nom }}</h2>
+                        <p>{{ categories[1].description }}</p>
+                    </article>
+                </section>
+            <section class="sectionSlide">
+                <h2 class="titleSlide">Nouveauté</h2>
+                <ul class="slide">
+                    {% for i in 0..3%}
+                        <li class="prodSlide">
+                            <img class="borderRight" src="{{ produits[i].image.path }}"/>
+                            <p class="price">{{ produits[i].prix }}€</p>
+                            <a class="ajout" href="{{ path('ajouter', { 'id' : produits[i].id }) }}">Ajouter au panier</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section class="sectionSlide">
+                <h2 class="titleSlide">Nos coups de coeur</h2>
+                <ul class="slide">
+                    {% for i in 0..3%}
+                         <li class="prodSlide">
+                            <img class="borderRight" src="{{ produits2[i].image.path }}"/>
+                            <p class="price">{{ produits2[i].prix }}€</p>
+                            <a class="ajout" href="{{ path('ajouter', { 'id' : produits[i].id }) }}">Ajouter au panier</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </global>
+{% endblock %}

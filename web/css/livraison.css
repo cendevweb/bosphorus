@@ -1,0 +1,138 @@
+@charset "utf-8";
+/*RESET AVEC LE SELECTEUR UNIVERSEL*/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	background: #FFF;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+}
+
+#global {
+	width: 100%;
+	margin:0 auto;
+
+
+}
+#livraison #content {
+	width: 60%;
+	left:20%;
+	position: relative;
+	display: block;
+        border-top: 1px solid #e6ba68;
+        top: 30px;
+}
+#livraison #path{
+	display: block;
+	font-size : 2em;
+	color: #1b1b1b;
+	position: relative;
+	width:100%;
+	top: 20px;
+	text-align: center;
+}
+#livraison #path p{
+	display: inline-block;
+	padding: 0px 15px;
+} 
+#livraison .borderLeft{
+	border-left: 1px solid #86b2eb;
+}
+
+#livraison .blue{
+	color: #86b2eb;
+}
+
+#livraison #content h2{
+	position: relative;
+	top:40px;
+	font-size: 1.8em;
+	color: #1b1b1b;
+}
+#livraison #content h3{
+	position: relative;
+	top:40px;
+	font-size: 1.4em;
+	color: #1b1b1b;
+}
+
+#livraison input{
+    display: block;
+    position: relative;
+    top : 50px;
+}
+#livraison button{
+    display: block;
+    position: relative;
+    top : 50px;
+    width:40%;
+    height: 30px;
+     background: #86b2eb;
+    color: #fff;
+}
+
+#livraison button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #1b1b1b;
+}
+#livraison input[type="text"]{
+    border : 1px #86b2eb solid;
+    width: 70%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#livraison input[type="submit"]{
+    width: 25%;
+    height: 30px;
+    position: relative;
+    background: #86b2eb;
+    color: #fff;
+}
+
+#livraison input[type="submit"]:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #1b1b1b;
+}
+#livraison label{
+    position: relative;
+    top: 50px;
+    font-size: 1.2em;
+}
+#livraison .selection{
+    position: relative;
+    width: 100%;
+    top: 20px;
+}
+#livraison form{
+    display: inline-block;
+    width:49%;
+}
+#livraison .selection p{
+    position: relative;
+    top: 37px;
+    left: 15px;
+    font-size:1.2em
+}
+
+#livraison #addAdresse{
+    display: inline-block;
+    position:relative;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+}
+
+#livraison #selectAdresse{
+    position: absolute;
+    top: 20px;
+    
+}

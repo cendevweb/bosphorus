@@ -1,0 +1,265 @@
+@charset "utf-8";
+/*RESET AVEC LE SELECTEUR UNIVERSEL*/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	background: #fff;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+}
+
+#global {
+	width: 100%;
+	margin:0 auto;
+
+
+}
+#listeproduits #content {
+	width: 75%;
+	margin-left: 20%;
+
+}
+
+#listeproduits  #selecteurBloc{
+	position: fixed;
+	border-right: #86b2eb solid 1px;
+	padding-right: 20px;
+	width: 15%;
+	max-height: 80%;
+	left:20px;
+	top: 20%;
+	font-size: 1.5em;
+}
+#listeproduits  #selecteurBloc h4{
+	margin-top: 15px;
+}
+
+/*		 RANGE TYPE style 		*/
+
+#listeproduits  .range-slider .input-range {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 10px;
+  border-radius: 5px;
+  background: #ccc;
+  outline: none;
+}
+#listeproduits  .range-slider .input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #353535;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+#listeproduits  .range-slider .input-range::-webkit-slider-thumb:hover {
+  background: #E6BA68;
+}
+#listeproduits  .range-slider .input-range:active::-webkit-slider-thumb {
+  background: #E6BA68;
+}
+#listeproduits  .range-slider .input-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #353535;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+#listeproduits  .range-slider .input-range::-moz-range-thumb:hover {
+  background: #E6BA68;
+}
+#listeproduits  .range-slider .input-range:active::-moz-range-thumb {
+  background: #E6BA68;
+}
+#listeproduits  .range-slider .range-value {
+  display: inline-block;
+  position: relative;
+  width: 10%;
+  color: #fff;
+  font-size: 0.8em;
+  top: -23px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #353535;
+  padding: 5px 10px;
+  margin-left: 85%;
+}
+#listeproduits  .range-slider .range-value:after {
+  position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #353535;
+  border-bottom: 7px solid transparent;
+  text-align: center;
+  content: '';
+} 
+
+input::-moz-range-track {
+  background: #ccc;
+  border: 0;
+}
+
+#listeproduits input::-moz-focus-inner {
+  border: 0;
+}
+/*		END RANGE TYPE style 		*/
+#listeproduits input[type="range"]{
+	margin-top: 15px;
+}
+
+#listeproduits  input[type="range"]:before{
+	left: 0em;
+    content: attr(min);
+}
+#listeproduits  input[type="range"]:after{
+	right: auto;
+    content: attr(max);
+}
+#listeproduits  input[type="range"]:after, input[type="range"]:before {
+    position: absolute;
+    top: 25%;
+    color: #aaa;
+}
+#listeproduits  #path{
+	font-size : 2em;
+	color: #1b1b1b;
+	position: relative;
+	width:60%;
+	top: 20px;
+}
+
+#listeproduits  #result{
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: 50px;
+}
+
+#listeproduits  #result ul{
+	width: 100%;
+	border-collapse: collapse;
+
+}
+
+#listeproduits  #result ul li{
+	position: relative;
+	display: inline-block;
+	width: 21.47%;
+	padding: 1% 1%;
+	border: #86b2eb solid 1px;
+	margin: 0.5%;
+}
+
+#listeproduits  #result ul li h3{
+	width: 100%;
+	margin-top: 15px;
+	text-align: center;
+	font-size: 1.4em;
+	color: #1b1b1b;
+}
+#listeproduits  #result ul li img{
+	width: 100%;
+}
+
+#listeproduits  #result ul li span{
+display: none;
+}
+#listeproduits  #result ul li:hover span{
+	display: block;
+	background: rgba(230,186,104,0.9);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+        top: 0px;
+	left: 0px;
+
+}
+#listeproduits  #result span p{
+	font-size: 2em;
+	text-align: center;
+	position: relative;
+	top:60px;
+	color:#fff;
+}
+#listeproduits  #result span .bloclink {
+	width: 100%;
+	text-align:center;
+	position: relative;
+	top: 100px;
+}
+#listeproduits  #result span a{
+	background: #fff;
+	border-radius: 10px;
+	position: relative;
+	color: #E6BA68;
+	padding: 10px;
+	text-align:center;
+	left: auto;
+	font-size: 1.5em;
+}
+#listeproduits  #result span a:hover{
+	text-decoration: underline;
+}
+
+#listeproduits  #nextprev{
+	width: 100%;
+        text-decoration: none;
+	height: auto;
+	position: relative;
+	top: 100px;
+}
+#listeproduits  #nextprev ul{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#listeproduits  #nextprev ul li{
+	width: 8%;
+	border-radius: 20px;
+	border: 1px solid #E6BA68;
+	text-align: center;
+	padding: 15px 0px;
+	display: inline-block;
+	font-size: 1.5em;
+	color: #86b2eb;
+	margin-left:5%;
+}
+
+#listeproduits  #nextprev ul a{
+	color: #86b2eb;
+        display:block;
+	cursor: pointer;
+}
+#listeproduits  #nextprev ul li:hover a{
+	color: #fff;
+}
+#listeproduits  #nextprev ul li:hover{
+	background: #E6BA68;
+	color: #fff;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1600px) {
+
+#listeproduits  #content {
+	width: 60%;
+	margin-left: 20%;
+
+}
+
+}

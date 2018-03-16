@@ -1,0 +1,254 @@
+@charset "utf-8";
+/*RESET AVEC LE SELECTEUR UNIVERSEL*/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	background: #FFF;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+}
+
+global {
+	width: 100%;
+	margin:0 auto;
+
+
+}
+#index #content {
+	width: 70%;
+	margin: 0 auto;
+}
+
+/*		STYLE GLOBAL		*/
+	/*	SECTION text	*/
+
+#index #text{
+	position: relative;
+	top: 70px;
+	width: 90%;
+	left: 5%;
+	height: auto;
+	text-align: center;
+}
+
+#index #text h1{
+	color: #1b1b1b;
+	font-size: 2em;
+}
+
+#index #text p{
+	color: #1b1b1b;
+	font-size: 1.5em;
+	margin-top: 1%;
+}
+
+	/*	SectionCat	*/
+
+#index #catMiseEnAvant{
+	width: 100%;
+	position: relative;
+	top: 130px;
+	left: 0px;
+}
+
+
+#index #cat1{
+	background: #e6ba68;
+	width: 55%;
+	display: inline-block;
+}
+
+#index #cat1 .imgprod{
+	width: 30%;
+	padding-left: 5%;
+	margin-top: 5%;
+	padding-right: 2%;
+	border-right: #1b1b1b solid 1px;
+	margin-bottom: 4%;
+	z-index: 13;
+	position: relative;
+}
+
+#index #cat1 h2{
+	font-size: 2em;
+	position: absolute;
+	top: 12%;
+	left: 22%;
+	color: #1b1b1b;
+	z-index: 13;
+}
+
+#index #cat1 p{
+	font-size: 1.4em;
+	color: #1b1b1b;
+	position: absolute;
+	top: 25%;
+	width: 25%;
+	left: 22%;
+	z-index: 13;
+
+}
+#index #cat2{
+	background: #86b2eb;
+	width: 40%;
+	margin-left: 5%;
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+
+}
+
+#index #cat2 .imgprod{
+	width: 48.7%;
+	margin-left: 50%;
+	margin-top: 5%;
+	padding-right: 2%;
+	border-left: #1b1b1b solid 1px;
+	margin-bottom: 4%;
+	z-index: 13;
+	position: relative;
+}
+
+#index #cat2 h2{
+	font-size: 2em;
+	position: absolute;
+	top: 12%;
+	left: 34%;
+	color: #1b1b1b;
+	z-index: 13;
+
+}
+
+#index #cat2 p{
+	font-size: 1.4em;
+	color: #1b1b1b;
+	position: absolute;
+	top: 25%;
+	width: 40%;
+	left: 6%;
+	text-align: right;
+	z-index: 13;
+
+}
+
+#index .graphine{
+	z-index: 2;
+	position: absolute;
+	height: 100%;
+	opacity: 0.1;
+}
+
+
+/*	STYLE  slide news	*/
+
+#index .sectionSlide {
+	position: relative;
+	top: 120px;
+	width: 100%;
+	left: 0px;
+}
+
+#index .titleSlide {
+	font-size: 2em;
+	margin-top: 3%;
+}
+
+#index .slide{
+	width: 100%;
+	height: auto;
+	border: #86b2eb 2px solid;
+	margin-top: 1%;
+}
+
+#index .prodSlide{
+	display: inline-block;
+	width: 24.57%;
+	text-align: right;
+	position: relative;
+
+}
+
+#index .prodSlide img{
+	width: 70%;
+	padding-right: 14.8%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#index .borderRight{
+	border-right: 1px solid #86b2eb;
+}
+
+#index .price{
+	padding: 3% 8% 3% 4%;
+	background: #e6ba68;
+	color: #fff;
+	font-size: 1.5em;
+	width: 8%;
+	position: absolute;
+	right: 10%;
+	top: 80%;
+	text-align: center;
+}
+
+#index .ajout{
+	padding: 3% 8%;
+	color: #86b2eb;
+	font-size: 1.5em;
+	width: 41%;
+	position: absolute;
+	right: 45%;
+	top: 84%;
+}
+
+
+@media screen and (max-width: 1600px) {
+  #index #content {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+  	#index #cat1 h2{
+	font-size: 1.7em;
+	}
+
+	#index #cat2 h2{
+	font-size: 1.7em;
+	}
+
+	#index #cat1 p{
+	font-size: 1.4em;
+	}
+	#index #cat2 p{
+	font-size: 1.4em;
+	}
+}
+
+
+
+@media screen and (max-width: 1230px) {
+	#index .prodSlide{
+		width: 24.81%;
+	}
+
+	#index #cat1 h2{
+	font-size: 1.5em;
+	}
+
+	#index #cat2 h2{
+	font-size: 1.5em;
+	}
+
+	#index #cat1 p{
+	font-size: 1.3em;
+	}
+	#index #cat2 p{
+	font-size: 1.3em;
+	}
+}
+

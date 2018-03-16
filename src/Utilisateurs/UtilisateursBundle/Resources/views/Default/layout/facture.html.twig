@@ -1,0 +1,50 @@
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+    <global id="compte">
+        {% include 'UtilisateursBundle:Default:modules/utilisateursConnected.html.twig' %}
+        <div id="content">
+            
+            {% for flashMessage in app.session.flashbag.get('succes') %}
+                   <p class="message">{{ flashMessage }}</p>
+            {% endfor %}
+            
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                   <p class="message">{{ flashMessage }}</p>
+            {% endfor %}
+            
+            <h2>Mes Factures :</h2>
+            <form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Références</th>
+                            <th>Date</th>
+                            <th>Prix TTC</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if factures|length == 0 %}
+                            <tr>
+                                <td><center>Aucune facture actuellement.</center></td>
+                        </tr>
+                    {% endif %}
+                    {% for facture in factures %}
+                        <tr>
+                            <td>ref : {{ facture.reference }}</td>
+                            <td>{{ facture.date|date('d/m/Y') }}</td>
+                            <td>{{ facture.commande.prixTTC }}€ </td>
+                            <td class="loadPDF"><a href="{{ path('facturesPDF', {'id' : facture.id }) }}" target="_blank"><img  src="{{ asset('img/loading.svg') }}"  /></a></td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </global>
+
+
+{% endblock %}

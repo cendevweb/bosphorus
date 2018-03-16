@@ -1,0 +1,41 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+    <global id="livraison">
+        <span id="path"><p><span class="blue">1 : Liste de mes Produits</span></p><p class="borderLeft"><span class="blue">2 : Identification</span></p><p class="borderLeft"><span class="blue">3 : Récapitulatif</span></p><p class="borderLeft"><span class="blue">4 : Paiement</span></p></span>
+        <div id="content">
+            <h2>Livraison</h2>
+            {% if utilisateur.adresses|length !=0 %}
+            <form action="{{path('validation') }}" id="selectAdresse" method="POST">
+            <div class="selection">
+                <h3>Adresse de livraison</h3>
+                {% for adresse in utilisateur.adresses %}
+                    <input type="radio" name="livraison" value="{{ adresse.id}}" {% if loop.index0 == 0 %}checked="checked{% endif %}"><p>{{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }}<a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id })}}"> X</a>
+                    <br/> {{ adresse.prenom }} {{ adresse.nom }}</p>
+                {% endfor %}
+            </div>
+            <br/>
+            <br/>
+            <div class="selection">
+                <h3>Adresse de facturation</h3>
+                 {% for adresse in utilisateur.adresses %}
+                <input type="radio" name="facturation" value="{{ adresse.id}}" {% if loop.index0 == 0 %}checked="checked{% endif %}"><p>{{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }}<a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id })}}"> X</a>
+                    <br/> {{ adresse.prenom }} {{ adresse.nom }}</p>
+                {% endfor %}
+                   <br/>
+            <br/>
+                <button>Valider mes adresses</button>
+            </div>
+            </form>
+            {% endif %}
+            <div id="addAdresse">
+                <h3>Ajouter une nouvelle adresse</h3>
+                <form action="{{ path('livraison') }}" method="POST">
+                    {{ form_widget(form) }}
+                    <input type="submit" value="Ajouter">
+                </form>
+            </div>
+        </div>
+    </global>
+{% endblock %}

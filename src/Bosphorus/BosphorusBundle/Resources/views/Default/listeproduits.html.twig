@@ -1,0 +1,77 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+    <global id="listeproduits">
+        <div id="selecteurBloc">
+            <h2>Affiné votre recherche</h2>
+            <div class="range-slider">
+                <h4>Prix maximale</h4>
+                <input class="input-range" type="range" value="500" min="1" max="500">
+                <span class="range-value"></span>
+            </div> 
+            <div>
+                <h4>Taille</h4>
+                <ul>
+                    <li><input type="checkbox" class="checkbox" name=""/>7</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>7.5</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>8</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>8.5</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>9</li>
+
+                </ul>
+            </div>
+            <div>
+                <h4>Pierre</h4>
+                <ul>
+                    <li><input type="checkbox" class="checkbox" name=""/>rubis</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>emeraude</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>topaz</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>saphir</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>aucune</li>
+
+                </ul>
+            </div>
+            <div>
+                <h4>Forme</h4>
+                <ul>
+                    <li><input type="checkbox" class="checkbox" name=""/>Ronde</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>Oval</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>Princesse</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>Carrer</li>
+                    <li><input type="checkbox" class="checkbox" name=""/>Perle</li>
+
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <p id="path">Bijoux femme / bague</p>
+            <section id="result">
+                {% if produits|length !=0%}
+                <ul>
+                     {% for produit in produits %}
+                        <li>
+                            <h3>{{ produit.nom}}</h3>
+                            <img src="{{ produit.image.path}}" alt="le produit"/>
+                            <span>
+                                <p>{{ produit.nom}}<br/><br/><strong>{{produit.prix|tva(produit.tva.multiplicate) }}€</strong></p>
+                                <div class="bloclink">
+                                    <a href="{{path('produit', { 'id' : produit.id }) }}">take a look</a>
+                                </div>
+                            </span>
+                        </li>
+                    {% endfor %}
+                 
+                </ul>
+            </section>
+            <section id="nextprev">
+                <div class="navigation">
+                    {{ knp_pagination_render(produits) }}
+                </div>    
+            </section>
+            {% else %}
+                <h2> Aucun Produit</h2>
+            {% endif %}
+        </div>
+    </global>
+{% endblock %}

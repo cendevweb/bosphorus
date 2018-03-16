@@ -1,0 +1,66 @@
+
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+    <global id="panier">
+        <span id="path"><p><span class="blue">1 : Liste de mes Produits</span></p><p class="borderLeft"><span class="blue">2 : Identification</span></p><p class="borderLeft"><span class="blue">3 : Récapitulatif</span></p><p class="borderLeft"><span class="blue">4 : Paiement</span></p></span>
+        <div id="content">
+            <h2>Valider votre panier :</h2>
+            <table>
+                <tr>
+                    <td><strong>Produit</strong></td>
+                    <td><strong>Nom</strong></td>
+                    <td><strong>Prix</strong></td>
+                    <td><strong>Quantite</strong></td>
+                    <td><strong>Total HT</strong></td>
+                </tr>
+                {% for produit in commande.commande.produit %}
+                    <tr>
+                        <td width="15%"><img src="{{produit.image.path}}" alt="le produit"/></td>
+                        <td>{{ produit.reference }}</td>
+                        <td>{{ produit.prixHT }} €</td>
+                        <td>
+                            {{ produit.quantite }}
+                        </td>
+                        <td>{{produit.prixHT * produit.quantite }} €</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <p class="total"> Total HT : {{ commande.commande.prixHT }} €</p>
+
+            {% for key, tva in commande.commande.tva %}
+                <p class="total">TVA {{ key }} : {{ tva }} €</p>
+            {% endfor %}
+            <p class="total"> Total TTC : {{ commande.commande.prixTTC }} €</p>
+
+            <div class="adresses">
+                <dl>
+                    <dt><h4>Adresse de livraison</h4></dt>
+                    <dt>{{ commande.commande.livraison.prenom }} {{ commande.commande.livraison.nom }}</dt>
+                    <dt>{{ commande.commande.livraison.adresse }}</dt>
+                    <dt>{{ commande.commande.livraison.cp }} {{ commande.commande.livraison.ville }} - {{ commande.commande.livraison.pays }}</dt>
+                </dl>
+            </div>
+
+            <div class="adresses">
+                <dl>
+                    <dt><h4>Adresse de facturation</h4></dt>
+                    <dt>{{ commande.commande.facturation.prenom }} {{ commande.commande.facturation.nom }}</dt>
+                    <dt>{{ commande.commande.facturation.adresse }}</dt>
+                    <dt>{{ commande.commande.facturation.cp }} {{ commande.commande.facturation.ville }} - {{ commande.commande.facturation.pays }}</dt>
+                </dl>
+            </div>
+
+            <form action="{{ path('validationCommande', { 'id' :commande.id }) }}" method="POST">    
+            <input name="token" type="hidden" value="{{ commande.commande.token }}" />
+            <input name="prix" type="hidden" value="{{ commande.commande.prixTTC }}" />
+            <input name="date" type="hidden" value="{{ commande.date|date('dmyhms') }}" />
+            <button type="submit" href="#" class="btnPanier">Payer</button>
+            </form>
+
+          
+            <a href="{{ path('livraison') }}" class="btnPanier">Retour</a>
+        </div>
+    </global>
+{% endblock %}

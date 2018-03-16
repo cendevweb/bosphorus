@@ -1,0 +1,16 @@
+services:
+    
+    setNewReference:
+        class: Bosphorus\BosphorusBundle\Services\GetReference
+        arguments: [@security.context, @doctrine.orm.entity_manager]
+    
+    tva:
+        class: Bosphorus\BosphorusBundle\Twig\Extension\TvaExtension
+        tags:
+            - { name: twig.extension }
+            
+    redirectionListener:
+        class: Bosphorus\BosphorusBundle\Listener\RedirectionListener
+        arguments: [@service_container,@session]
+        tags: 
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
